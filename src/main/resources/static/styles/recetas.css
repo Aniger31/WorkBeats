@@ -1,0 +1,22 @@
+#recetas-container{
+    border: 2px dashed red;
+    min-height: 100px;
+}
+
+.accordion-item {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.accordion-header {
+    background-color: #e0e0e0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.accordion-body {
+    display: none;
+    padding: 10px;
+}
