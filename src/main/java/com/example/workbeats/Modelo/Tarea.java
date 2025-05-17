@@ -1,23 +1,35 @@
 package com.example.workbeats.Modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
+@Table(name = "tareas")
 public class Tarea {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_Tarea;
 
     private String titulo;
-    private String descripcion;
+
     private Boolean completada; //True = completada y False = Incompleta
     private String linkSpotify;
-    @ManyToOne
-    @JoinColumn(name = "receta_cafe_id_receta_cafe")
-    private RecetaCafe recetaCafe;
-    @ManyToOne
-    @JoinColumn(name = "usuario_id_usuario")
+
+    @ManyToOne //(M:1)
+    @JoinColumn(name = "id_usuario")
+    @JsonBackReference
     private Usuario usuario;
+
+    @OneToMany(mappedBy = "tarea") //una tarea una receta (1:1=
+    @JsonManagedReference
+    private List<RecetaCafe> recetaCafes;
+    //Si eliminas una tarea, sus recetas también se eliminan de la base de datos.
+    //
+    //Si eliminas una receta de la lista recetaCafes, también desaparece de la base de datos.
 
     public Long getId_Tarea() {
         return id_Tarea;
@@ -35,13 +47,6 @@ public class Tarea {
         this.titulo = titulo;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 
     public Boolean getCompletada() {
         return completada;
@@ -59,12 +64,12 @@ public class Tarea {
         this.linkSpotify = linkSpotify;
     }
 
-    public RecetaCafe getRecetaCafe() {
-        return recetaCafe;
+    public List<RecetaCafe> getRecetaCafes() {
+        return recetaCafes;
     }
 
-    public void setRecetaCafe(RecetaCafe recetaCafe) {
-        this.recetaCafe = recetaCafe;
+    public void setRecetaCafes(List<RecetaCafe> recetaCafes) {
+        this.recetaCafes = recetaCafes;
     }
 
     public Usuario getUsuario() {

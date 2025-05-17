@@ -1,11 +1,10 @@
 package com.example.workbeats.Modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "recetas")
 public class RecetaCafe {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,6 +14,11 @@ public class RecetaCafe {
     private String tipo; // fria o caliente frappe
     private String pasos;
     private int tiempoMin; // el tiempo que te tardas en hacer la receta
+
+    @ManyToOne()
+    @JoinColumn(name = "id_tarea")
+    @JsonBackReference
+    private Tarea tarea;
 
     public Long getId_recetaCafe() {
         return id_recetaCafe;
@@ -46,6 +50,14 @@ public class RecetaCafe {
 
     public void setPasos(String pasos) {
         this.pasos = pasos;
+    }
+
+    public Tarea getTarea() {
+        return tarea;
+    }
+
+    public void setTarea(Tarea tarea) {
+        this.tarea = tarea;
     }
 
     public int getTiempoMin() {

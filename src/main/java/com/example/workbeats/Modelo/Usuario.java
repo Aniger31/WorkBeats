@@ -1,10 +1,12 @@
 package com.example.workbeats.Modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
+@Table(name = "usuarios")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //genera la primary key de manera automatica
@@ -14,8 +16,14 @@ public class Usuario {
     private String email;
     private String password;
 
-    @ManyToMany
-    private List<Tarea> tareas; //Tareas del usuario
+    //Establecer relacion entre el usuario y sus tareas (1:M)
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Tarea> tareas;
+    //cascade = CascadeType.ALL: al guardar, actualizar o eliminar un usuario, hace lo mismo con sus tareas.
+    //
+    //orphanRemoval = true: si eliminas una tarea de la lista tareas, también se borra de la BD.
+
 
     public Long getId_usuario() {
         return id_usuario;
@@ -56,4 +64,6 @@ public class Usuario {
     public void setTareas(List<Tarea> tareas) {
         this.tareas = tareas;
     }
+
+
 }

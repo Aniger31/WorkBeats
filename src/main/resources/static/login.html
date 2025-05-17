@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>HTML Login Form</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+<div class="main">
+  <h1>WorkBeats</h1>
+
+
+  <form id="loginForm">
+    <label for="first">
+      Nombre:
+    </label>
+    <input type="text" id="first" name="first"
+           placeholder="Ingresa tu nombre" required>
+
+    <label for="password">
+      Password:
+    </label>
+    <input type="password" id="password" name="password"
+           placeholder="" required>
+
+    <div class="wrap">
+      <button type="submit">
+        Submit
+      </button>
+    </div>
+  </form>
+
+  <p>No tienes una cuenta?
+    <a href="/registro.html" style="text-decoration: none;">
+      Unete es gratis !!!
+    </a>
+  </p>
+</div>
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function (e){
+    e.preventDefault();
+    const data = {
+      nombre : document.getElementById("first").value,
+      password: document.getElementById("password").value
+    };
+
+    fetch("usuarios/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body : JSON.stringify(data)
+    })
+            .then(res => res.json())
+            .then(data =>{
+              alert(data.mensaje);
+              localStorage.setItem("id_usuario",data.id_usuario); //guardamos el id para usarlo en home
+              window.location.href ="/home.html"
+            })
+
+            .then(msg => {
+              alert(msg);
+              window.location.href = "/home.html" //redirige a la pagina principal de contenido
+            })
+            .catch(err =>{
+              alert(err.message);
+            });
+  });
+</script>
+
+</body>
+
+</html>
