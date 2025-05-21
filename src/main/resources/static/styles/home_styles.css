@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+    --fuente-principal: 'Nunito', sans-serif;
+    --azul-grisaceo: #6c7a89;
+    --beige: #f5f5dc;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    margin: 0;
+    background-color: var(--beige);
+}
+
 .parent {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -6,13 +20,21 @@
     grid-row-gap: 0px;
 }
 
-.div1 { grid-area: 1 / 1 / 2 / 3; }
+.div1 {
+    padding: 10px;
+    min-height: 100px;
+}
+.div1 h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
 .div2 { grid-area: 2 / 1 / 4 / 2; }
 .div3 { grid-area: 2 / 2 / 3 / 3; }
 .div4 { grid-area: 3 / 2 / 4 / 3; }
 
+
 header {
-    background: beige;
+    background: var(--beige);
     width: 100%;
     position: fixed;
     z-index: 100;
@@ -26,11 +48,13 @@ nav {
 nav ul {
     list-style: none;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
     float: left;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--fuente-principal);
     font-size: 20px;
 }
 
@@ -39,8 +63,15 @@ nav ul li a {
     padding: 20px;
     color: black;
     text-decoration: none;
+    transition: background-color 0.2s ease;
 }
 
 nav ul li:hover {
-    background: #4CAF50;
+    background: var(--azul-grisaceo);
+    color: white;
+    border-radius: 4px;
+}
+
+nav ul li a:hover {
+    color: white;
 }

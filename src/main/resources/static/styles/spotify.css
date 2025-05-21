@@ -1,61 +1,96 @@
-#spotify-container {
-    background: beige;
+/* ---------- SPOTIFY.CSS MODIFICADO ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
+    background-color: beige; /* CAMBIO: fondo consistente */
+    margin: 0;
     padding: 20px;
-    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+#spotify-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .spotify-card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 200px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-    display: inline-block;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
     text-align: center;
-    font-family: "Poppins", sans-serif;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
 }
 
 .spotify-card:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .spotify-card img {
+    width: 100%;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
+.spotify-card h3 {
+    font-size: 18px;
+    color: #5a6e7f; /* CAMBIO: azul grisáceo como color de marca */
+    margin: 10px 0 5px;
+}
+
 .spotify-card p {
-    font-size: 16px;
-    margin: 10px 0;
-    color: #333;
+    font-size: 14px;
+    color: #555;
+    margin: 0;
 }
 
-.spotify-card a {
-    color: #1db954;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 10px;
-}
-
-.spotify-card a:hover {
-    text-decoration: underline;
-}
-
-.agregar-btn {
+.spotify-button {
     margin-top: 10px;
-    padding: 8px 12px;
-    background-color: #4CAF50;
-    color: white;
+    padding: 10px 16px;
     border: none;
-    border-radius: 6px;
+    background-color: #5a6e7f; /* CAMBIO: azul grisáceo como color de marca */
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s;
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
 }
 
-.agregar-btn:hover {
-    background-color: #159c44;
+.spotify-button:hover {
+    background-color: #4a5d6d;
+}
+
+/* ---------- DROPDOWN CONSISTENTE ---------- */
+.spotify-dropdown {
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%23333'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    margin-bottom: 15px;
+    transition: border-color 0.2s;
+}
+
+.spotify-dropdown:focus {
+    outline: none;
+    border-color: #5a6e7f; /* azul grisáceo */
 }

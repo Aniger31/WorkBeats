@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
+    background-color: beige; /* CAMBIO: fondo consistente */
+    margin: 0;
+    padding: 0;
+}
+
+
 #recetas-container {
     background: #ffffff;
     padding: 25px;
     width: 550px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
 }
 
 .accordion-item {
@@ -13,6 +24,7 @@
     border-radius: 10px;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
     transition: transform 0.2s;
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
 }
 
 .accordion-item:hover {
@@ -25,6 +37,8 @@
     cursor: pointer;
     font-weight: bold;
     border-radius: 10px;
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
+    color: #5a6e7f; /* CAMBIO: azul grisáceo como color de marca */
 }
 
 .accordion-body {
@@ -33,4 +47,29 @@
     background: #ffffff;
     border-radius: 10px;
     transition: height 0.3s ease;
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
+    color: #333;
+}
+
+/* ---------- DROPDOWN CONSISTENTE CON SPOTIFY ---------- */
+select {
+    font-family: 'Nunito', sans-serif; /* CAMBIO: tipografía actualizada */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%23333'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    margin-bottom: 15px;
+    transition: border-color 0.2s;
+}
+
+select:focus {
+    outline: none;
+    border-color: #5a6e7f; /* azul grisáceo */
 }
