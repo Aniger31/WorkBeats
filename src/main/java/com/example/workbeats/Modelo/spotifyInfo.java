@@ -13,6 +13,8 @@ public class spotifyInfo {
 
     }
 
+
+
     public String getNombre() {
         return nombre;
     }
