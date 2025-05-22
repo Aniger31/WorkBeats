@@ -2,11 +2,14 @@ WORKBEATS
 
 Documentacion:
 ControladorUsuarios:
-	- Un POST: aquí seria el caso cuando hace el login en donde agrega(nombre, email, contraseña) en el caso de la lista de tareas es null cuando se crea
-	- Un GET: mostrar la info del usuario. (Tenemos otro que es un get que muestra todos los usuarios pero lo tenemos para las pruebas de postman)
+
+	- Un POST: aquí seria el caso cuando hace el login en donde agrega(nombre, email, contraseña) en el caso de la lista de tareas es null cuando se crea.
+ 
+	- Un GET: mostrar la info del usuario. (Tenemos otro que es un get que muestra todos los usuarios pero lo tenemos para las pruebas de postman).
+ 
 	- Los PUTS que tenemos son:
-	                actualizarDatosUsuario-> aquí solo actualiza el nombre y el email.
-					actualizarContrasenaUsuario-> cambio de contraseña
+	                actualizarDatosUsuario -> aquí solo actualiza el nombre y el email.
+		 	actualizarContrasenaUsuario -> cambio de contraseña.
 	-Un DELETE: en este caso solo es borrar completamente la info del usuario junto con las tareas que tenga vinculada sin eliminar las recetas (nada mas se desvinculan)
 
 
