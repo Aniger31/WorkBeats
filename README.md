@@ -25,14 +25,13 @@ ControladorRecetaCafe: Tenemos recetas creadas si tener una conexión automátic
 - Un DELETE: solo borra la receta
 
 ControladorSpotify: Aqui llamamos al servicio de Recomendacion Spotify y al Repositorio tarea
--Un GET: en el cual busca las canciones del genero especifico que queremos
+-Un GET: en el cual busca las canciones del genero especifico que queremos.
 -Un PUT: en el cual se agrega el link elegido a la tarea elegida
 
-
 en la carpeta resources
-                -> static: 
-			-> styles: son los archivos css que son los estilos que se utilizan 
-   			-> scripts: son los archivos js que son los scripts para el manejo de los datos mediante el fetch() para usar el crud que tenemos en los controladores
-      			estan los HTMLs de las paginas que utilizamos 
+-> styles: son los archivos css que son los estilos que se utilizan 
+-> scripts: son los archivos js que son los scripts para el manejo de los datos mediante el fetch() para usar el crud que tenemos en los controladores
+estan los HTMLs de las paginas que utilizamos 
+
 en la carpeta test
     estan todos los unit test por controlador implementé los test que vi que eran necesarios
