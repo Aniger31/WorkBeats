@@ -8,6 +8,10 @@ import java.util.List;
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
+    /**
+     * La primaryKey de la tabla de usuarios es el id_usuario
+     * tenemos relaciones Uno a Muchos entre usuario y tareas
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //genera la primary key de manera automatica
     private Long id_usuario;
@@ -24,6 +28,7 @@ public class Usuario {
     //
     //orphanRemoval = true: si eliminas una tarea de la lista tareas, también se borra de la BD.
 
+    /*Getters y Setters*/
 
     public Long getId_usuario() {
         return id_usuario;

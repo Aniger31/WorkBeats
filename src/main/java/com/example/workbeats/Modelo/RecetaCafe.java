@@ -20,6 +20,8 @@ public class RecetaCafe {
     @JsonBackReference
     private Tarea tarea;
 
+    /*Getters y Setters*/
+
     public Long getId_recetaCafe() {
         return id_recetaCafe;
     }

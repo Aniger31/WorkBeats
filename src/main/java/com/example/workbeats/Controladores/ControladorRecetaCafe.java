@@ -11,21 +11,42 @@ public class ControladorRecetaCafe {
     @Autowired
     private RepositorioReceta repositorioReceta;
 
+    /**
+     * @param recetaCafe la info de la clase de la receta que queremos agregar
+     * @return un mensaje de quela receta se agregó correctamente
+     */
     @PostMapping(path = "/crear")
     public String crearRecetaCafe(@RequestBody RecetaCafe recetaCafe) {
         repositorioReceta.save(recetaCafe);
         return "Receta Cafe Creada";
     }
+
+
+    /**
+     * @return las recetas de café
+     */
     //GET ALL
     @GetMapping(path = "/ver")
     public @ResponseBody Iterable<RecetaCafe> getRecetasCafe() {
         return repositorioReceta.findAll();
     }
+
+
+    /**
+     * @param id buscar una receta en especifico
+     * @return la receta encontrada
+     */
     @GetMapping(path = "/{id}")
     public @ResponseBody RecetaCafe getRecetas(@PathVariable(name = "id") Long id){
         return repositorioReceta.findById(id).orElseThrow();
     }
 
+
+    /**
+     * @param id de la receta a actualizar con los datos de
+     * @param recetaCafe que son los datos a actualizar
+     * @return el mensaje de que la receta se actualizó
+     */
     @PutMapping(path = "/{id}/pasos")
     public @ResponseBody String pasosReceta(@PathVariable(name = "id") Long id, @RequestBody RecetaCafe recetaCafe) {
         RecetaCafe recetaCafe1 = repositorioReceta.findById(id).orElseThrow();
@@ -33,6 +54,12 @@ public class ControladorRecetaCafe {
         repositorioReceta.save(recetaCafe1);
         return "Pasos de receta actualizada";
     }
+
+
+    /**
+     * @param id de la receta que queremos eliminar
+     * @return un mensaje de que se eliminó correctamente
+     */
     @DeleteMapping(path = "/{id}/borrar")
     public @ResponseBody String eliminarReceta(@PathVariable(name = "id") Long id) {
         repositorioReceta.deleteById(id);
@@ -40,11 +67,3 @@ public class ControladorRecetaCafe {
     }
 
 }
-/*
-en recetaCafe seria:
-creo que podríamos tener recetas creadas si tener una conexión automática con una tarea
-	-Un POST ->
-	-Un GET
-	- Un PUT de actualizar los pasos
-	- Un DELETE
- */

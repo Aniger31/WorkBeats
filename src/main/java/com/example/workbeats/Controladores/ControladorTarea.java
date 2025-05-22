@@ -19,6 +19,10 @@ public class ControladorTarea {
     @Autowired
     private RepositorioReceta repositorioReceta;
 
+    /**
+     * @param tarea la info de la clase de tarea que se quiere crear
+     * @return mensaje de que si se creo
+     */
     @PostMapping(path = "/crear")
     public @ResponseBody String crearTarea(@RequestBody Tarea tarea){
         tarea.setCompletada(Boolean.FALSE);
@@ -32,10 +36,19 @@ public class ControladorTarea {
     }
     //GET ALL es para hacer las pruebas de postman
 
+    /**
+     * @return todas las tareas que tenemos en la base de datos
+     */
     @GetMapping(path = "/ver/lista")
     public @ResponseBody Iterable<Tarea> getTareas() {
         return repositorioTarea.findAll();
     }
+
+
+    /**
+     * @param idUsuario el usuario del cual queremos buscar las tareas
+     * @return las tareas del usuario que le mandamos
+     */
     @GetMapping(path = "/ver/{idUsuario}")
     public @ResponseBody List<Tarea> getTareasPorUsuario(@PathVariable(name= "idUsuario") Long idUsuario){
         return repositorioTarea.findAll()
@@ -45,6 +58,10 @@ public class ControladorTarea {
     }
 
 
+    /**
+     * @param id de la tarea que le queremos cambiar el estado de FALSE a TRUE
+     * @return un mensaje de que se actualice la tarea
+     */
     @PutMapping(path = "/{id}/estado")
     public @ResponseBody String estadoTarea(@PathVariable(name = "id") Long id){
         Tarea tarea = repositorioTarea.findById(id).orElseThrow();
@@ -63,6 +80,10 @@ public class ControladorTarea {
     }
 
 
+    /**
+     * @param id de la tarea que queremos eliminar
+     * @return un mensaje de que la tarea se eliminó
+     */
     @DeleteMapping(path = "/{id}")
     public @ResponseBody String eliminarTarea(@PathVariable(name = "id") Long id) {
         repositorioTarea.deleteById(id);
@@ -70,12 +91,4 @@ public class ControladorTarea {
     }
 
 }
-/*
-en tareas seria:
-	-Un POST: aquí da los datos básicos de la tarea que seria titulo, en completada se le pone false ya que cuando crea una tarea todavía no la completa.
-	- Un GET: muestra la info de la tarea.
-	-Los PUTS que quiero son: 	actualizarEstadoDeTarea-> aquí cambiamos el completada a true
-					agregarRecetaCafe-> igual que en el de agregarTareas en el controlador de usuarios tengo duda por el hecho de que puede crearse en REcetas directamente y hacer la actualización pero no se que me recomiendes.
 
-	-Un DELETE: en este solo se elimina la tarea pero no se como seria para que no falle ya que tarea esta conectada con RecetaCafe pero lo único que quiero borrar es la tarea no la receta ya que esa misma puedes asignarla a otra tarea posteriormente.
- */

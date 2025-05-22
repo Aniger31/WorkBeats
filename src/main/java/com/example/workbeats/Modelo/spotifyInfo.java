@@ -1,6 +1,11 @@
 package com.example.workbeats.Modelo;
 
 public class spotifyInfo {
+    /**
+     * son los datos que sacaremos del API de Spotify,
+     * el link es lo que guardaremos en la tarea
+     * el nombre(titulo de cancion) y el artista (nombre del artista) que es lo que mostraremos en la pantalla
+     */
     private String nombre;
     private String artista;
     private String link;
@@ -13,7 +18,7 @@ public class spotifyInfo {
 
     }
 
-
+    /*Getters y Setters*/
 
     public String getNombre() {
         return nombre;

@@ -59,6 +59,10 @@ public class ServicioSpotifyRecomendacion {
         return response.getBody().get("access_token").toString();
     }
 
+    /**
+     * @param query es el genero que quisieramos buscar
+     * @return la info de la clase SpotifyInfo que es el nombre, artista y link por las 5 recomendaciones
+     */
     // Obtener recomendaciones de canciones
     public List<spotifyInfo> buscarCanciones(String query) {
         String token = getAccessToken();

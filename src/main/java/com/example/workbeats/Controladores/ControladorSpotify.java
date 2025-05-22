@@ -21,11 +21,20 @@ public class ControladorSpotify {
         this.servicioSpotifyRecomendacion = servicioSpotifyRecomendacion;
     }
 
+    /**
+     * @param query el genero que queremos buscar
+     * @return las 5 canciones que buscamos
+     */
     @GetMapping("/buscar")
     public List<spotifyInfo> obtenerRecomendaciones(@RequestParam String query){
         return servicioSpotifyRecomendacion.buscarCanciones(query);
     }
 
+    /**
+     * @param id de la tarea a la cual debemos agregar el
+     * @param link el que queremos guardar
+     * @return el mensaje de que el link se agregó a la tarea
+     */
     //agregar el link de la cancion a la tarea que elija
     @PutMapping(path = "/{id}/agregar")
     public @ResponseBody String agregarRecomendacion(@PathVariable(name = "id")Long id, @RequestBody String link){

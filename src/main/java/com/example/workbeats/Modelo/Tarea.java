@@ -10,6 +10,11 @@ import java.util.List;
 @Entity
 @Table(name = "tareas")
 public class Tarea {
+    /**
+     * La primaryKey es el id_Tarea
+     * tenemos relacion Muchos a uno con usuario
+     * tenemos una relacion uno a muchos entre la receta y las tareas
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_Tarea;
@@ -24,12 +29,14 @@ public class Tarea {
     @JsonBackReference
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "tarea") //una tarea una receta (1:1=
+    @OneToMany(mappedBy = "tarea")
     @JsonManagedReference
     private List<RecetaCafe> recetaCafes;
     //Si eliminas una tarea, sus recetas también se eliminan de la base de datos.
     //
     //Si eliminas una receta de la lista recetaCafes, también desaparece de la base de datos.
+
+    /*Getters y Setters*/
 
     public Long getId_Tarea() {
         return id_Tarea;
