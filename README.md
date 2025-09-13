@@ -1,37 +1,95 @@
-WORKBEATS
+# ☕ WorkBeats
 
-Documentacion:
+Aplicación web desarrollada con **Java Spring Boot** para el backend y **HTML, CSS, JavaScript** para el frontend.  
+La app utiliza **MySQL** como base de datos y permite gestionar información mediante operaciones CRUD.  
 
-ControladorUsuarios:
-- Un POST: aquí seria el caso cuando hace el login en donde agrega(nombre, email, contraseña) en el caso de la lista de tareas es null cuando se crea.
-- Un GET: mostrar la info del usuario. (Tenemos otro que es un get que muestra todos los usuarios pero lo tenemos para las pruebas de postman).
-- Los PUTS que tenemos son:
-	actualizarDatosUsuario -> aquí solo actualiza el nombre y el email.
-	actualizarContrasenaUsuario -> cambio de contraseña.
--Un DELETE: en este caso solo es borrar completamente la info del usuario junto con las tareas que tenga vinculada sin eliminar las recetas (nada mas se desvinculan).
+---
 
-ControladorTareas:
-- POST: aquí da los datos básicos de la tarea que seria titulo y descripción, en completada se le pone false ya que cuando crea una tarea todavía no la completa.
-- GET: Por id (muestra la info de la tarea) y una lista ( la cual son todas las tareas)
-- Los PUTS son:
-	estadoDeTarea-> aquí cambiamos el completada a true
-	asignarRecetaTarea ("/{idTarea}/asignar-receta/{idReceta}")) -> mandamos el id de la tarea y el id de la receta para que se asigne la receta a la tarea (se busca tanto la tarea como la receta y despues se hace la conexion y se guardan los datos).
--Un DELETE: en este solo se elimina la tarea.
+## 📌 Características principales
+- Backend con Spring Boot y conexión a MySQL.  
+- CRUD de entidades principales (usuarios, tareas, recetas, etc.).  
+- Frontend con HTML, CSS y JS.  
+- Interacción en tiempo real con datos usando JavaScript.  
+- Diseño adaptable para dispositivos móviles y escritorio.  
 
-ControladorRecetaCafe: Tenemos recetas creadas si tener una conexión automática con una tarea
-- Un POST -> mandamos la receta a guardar
-- Un GET: por id y otro de todas las recetas
-- Un PUT:  actualizar los pasos de la receta
-- Un DELETE: solo borra la receta
+---
 
-ControladorSpotify: Aqui llamamos al servicio de Recomendacion Spotify y al Repositorio tarea
--Un GET: en el cual busca las canciones del genero especifico que queremos.
--Un PUT: en el cual se agrega el link elegido a la tarea elegida
+## 🛠 Tecnologías usadas
+- **Backend:** Java 17+, Spring Boot, Maven  
+- **Base de datos:** MySQL  
+- **Frontend:** HTML, CSS, JavaScript  
+- **Pruebas:** JUnit 5 (para backend)  
 
-en la carpeta resources
--> styles: son los archivos css que son los estilos que se utilizan 
--> scripts: son los archivos js que son los scripts para el manejo de los datos mediante el fetch() para usar el crud que tenemos en los controladores
-estan los HTMLs de las paginas que utilizamos 
+---
 
-en la carpeta test
-    estan todos los unit test por controlador implementé los test que vi que eran necesarios
+## 🚀 Instalación y ejecución
+
+### 1️⃣ Clonar el repositorio
+```bash
+git clone https://github.com/tu-usuario/tu-repo.git
+cd tu-repo
+```
+
+### 2️⃣ Configurar la base de datos MySQL
+1. Crear una base de datos en MySQL (ejemplo: `mi_app`).  
+2. Actualizar el archivo `application.properties` (o `application.yml`) con tus credenciales:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/mi_app
+spring.datasource.username=tu_usuario
+spring.datasource.password=tu_password
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+### 3️⃣ Ejecutar el backend
+```bash
+mvn spring-boot:run
+```
+
+El servidor se levantará en:  
+👉 `http://localhost:8080`
+
+### 4️⃣ Acceder al frontend
+Abre el archivo `index.html` en tu navegador o configúralo para servir desde Spring Boot.  
+
+---
+
+## 📂 Estructura del proyecto
+```
+📦 proyecto
+ ┣ 📂 src
+ ┃ ┣ 📂 main
+ ┃ ┃ ┣ 📂 java/com/tuapp   # Backend con Spring Boot
+ ┃ ┃ ┣ 📂 resources
+ ┃ ┃ ┃ ┣ application.properties
+ ┃ ┃ ┃ ┗ templates/         # HTML
+ ┃ ┃ ┃ ┗ static/            # CSS y JS
+ ┃ ┣ 📂 test                 # Pruebas con JUnit
+ ┣ 📜 pom.xml                # Dependencias Maven
+ ┣ 📜 README.md              # Este archivo
+ ┣ 📜 CHECKLIST.md           # Checklist de mejoras
+```
+
+---
+
+## ✅ Checklist de mejoras
+El progreso del proyecto se gestiona en el archivo [`CHECKLIST.md`](./CHECKLIST.md).  
+
+---
+
+## ✨ Próximas mejoras
+- Mejorar diseño y responsividad (CSS unificado).  
+- Implementar pruebas unitarias en el backend.  
+- Documentación detallada de la API (Swagger o Postman).  
+- Integración de notificaciones más visuales con JavaScript.  
+
+---
+
+## 👩‍💻 Autor
+Desarrollado por [Regina Hernandez Rodriguez](https://github.com/Aniger31).  
+
+---
+
+## 📄 Licencia
+Este proyecto está bajo la licencia MIT - consulta el archivo LICENSE para más detalles.  
